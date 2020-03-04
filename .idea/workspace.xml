@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3edaf4c9-cb56-473d-b2e6-9be4b5027f36" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YfeMLFYATYbwjZGBf5CRGQJEBp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3edaf4c9-cb56-473d-b2e6-9be4b5027f36" name="Default Changelist" comment="" />
+      <created>1583338026149</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583338026149</updated>
+      <workItem from="1583338029857" duration="1426000" />
+      <workItem from="1583343458044" duration="6932000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="428" y="124" width="848" height="677" key="#Project_Structure" timestamp="1583338341275">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="428" y="124" width="848" height="677" key="#Project_Structure/67.27.1533.873@67.27.1533.873" timestamp="1583338341275" />
+    <state x="366" y="120" width="924" height="684" key="Maven.ArtifactSearchDialog" timestamp="1583338150428">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="366" y="120" width="924" height="684" key="Maven.ArtifactSearchDialog/67.27.1533.873@67.27.1533.873" timestamp="1583338150428" />
+    <state x="497" y="152" width="662" height="620" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583346243442">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="497" y="152" width="662" height="620" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1533.873@67.27.1533.873" timestamp="1583346243442" />
+  </component>
+</project>
