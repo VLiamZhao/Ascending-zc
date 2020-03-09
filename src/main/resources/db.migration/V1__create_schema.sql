@@ -1,4 +1,4 @@
-CREATE TABLE user (
+CREATE TABLE department (
     /*id                INTEGER NOT NULL default nextval('department_id_seq'), */
                             id                BIGSERIAL NOT NULL,
                             name              VARCHAR(30) not null unique,
@@ -6,32 +6,37 @@ CREATE TABLE user (
                             location          VARCHAR(100)
 );
 
-ALTER TABLE user ADD CONSTRAINT department_pk PRIMARY KEY ( id );
+ALTER TABLE department ADD CONSTRAINT department_pk PRIMARY KEY ( id );
 
-CREATE TABLE order (
+CREATE TABLE employee (
     /*id              INTEGER NOT NULL default nextval('employee_id_seq'),*/
                           id              BIGSERIAL NOT NULL,
                           name            VARCHAR(30) not null unique,
-                          time            VARCHAR(150),
-                          user_id         bigint NOT NULL
+                          first_name      VARCHAR(30),
+                          last_name       VARCHAR(30),
+                          email           VARCHAR(50),
+                          address         VARCHAR(150),
+                          hired_date      date default CURRENT_DATE,
+                          department_id   bigint NOT NULL
 );
 
-ALTER TABLE order ADD CONSTRAINT order_pk PRIMARY KEY ( id );
+ALTER TABLE employee ADD CONSTRAINT employee_pk PRIMARY KEY ( id );
 
-CREATE TABLE product (
+CREATE TABLE account (
     /*id             INTEGER NOT NULL default nextval('account_id_seq'),*/
                          id             BIGSERIAL NOT NULL,
-                         name           VARCHAR(30),
-                         price          float8,
-                         oid            bigint NOT NULL
+                         account_type   VARCHAR(30),
+                         balance        NUMERIC(10, 2),
+                         create_date    date default CURRENT_DATE,
+                         employee_id    bigint NOT NULL
 );
 
-ALTER TABLE product ADD CONSTRAINT product_pk PRIMARY KEY ( id );
+ALTER TABLE account ADD CONSTRAINT account_pk PRIMARY KEY ( id );
 
-ALTER TABLE order
-    ADD CONSTRAINT order_user_fk FOREIGN KEY ( user_id )
-        REFERENCES user ( id );
+ALTER TABLE account
+    ADD CONSTRAINT account_employee_fk FOREIGN KEY ( employee_id )
+        REFERENCES employee ( id );
 
-ALTER TABLE product
-    ADD CONSTRAINT product_order_fk FOREIGN KEY ( oid )
-        REFERENCES order ( id );
+ALTER TABLE employee
+    ADD CONSTRAINT employee_department_fk FOREIGN KEY ( department_id )
+        REFERENCES department ( id );
