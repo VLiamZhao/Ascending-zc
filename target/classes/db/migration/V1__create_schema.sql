@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS department CASCADE;
+DROP TABLE IF EXISTS employee CASCADE;
+DROP TABLE IF EXISTS account CASCADE;
 CREATE TABLE department (
     /*id                INTEGER NOT NULL default nextval('department_id_seq'), */
                             id                BIGSERIAL NOT NULL,
