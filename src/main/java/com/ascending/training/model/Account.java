@@ -5,7 +5,7 @@ public class Account {
   private String account_type;
   private double balance;
   private String create_date;
-  private long emloyee_id;
+  private long employee_id;
 
     public Account() {
     }
@@ -14,7 +14,15 @@ public class Account {
         this.account_type = account_type;
         this.balance = balance;
         this.create_date = create_date;
-        this.emloyee_id = emloyee_id;
+        this.employee_id = emloyee_id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getAccount_type() {
@@ -41,20 +49,11 @@ public class Account {
         this.create_date = create_date;
     }
 
-    public long getEmloyee_id() {
-        return emloyee_id;
+    public long getEmployee_id() {
+        return employee_id;
     }
 
-    public void setEmloyee_id(long emloyee_id) {
-        this.emloyee_id = emloyee_id;
+    public void setEmployee_id(long employee_id) {
+        this.employee_id = employee_id;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
 }
