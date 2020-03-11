@@ -10,10 +10,9 @@ public class Account {
     public Account() {
     }
 
-    public Account(String account_type, double balance, String create_date, long emloyee_id) {
+    public Account(String account_type, double balance, long emloyee_id) {
         this.account_type = account_type;
         this.balance = balance;
-        this.create_date = create_date;
         this.employee_id = emloyee_id;
     }
 

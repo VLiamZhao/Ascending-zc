@@ -23,7 +23,7 @@ public class AccountDaoTest {
         logger.debug("Executing setUp before test...");
         accountDao = new AccountDao();
         long testAccountId = 0;
-        testRecord = new Account("test", 439.91, "2020, Mar 3", 1);
+        testRecord = new Account("test", 439.91, 1);
         testRecord = accountDao.saveAccounts(testRecord);
         testAccountId = testRecord.getId();
         assert(testAccountId > 0);
