@@ -63,6 +63,51 @@ public class AccountDao {
         return accounts;
     }
 
+    public Account getAccountById(long tmpid) {
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        Account result = new Account();
+        try {
+            //STEP 2: Open a connection
+            logger.debug("Connecting to database...");
+            conn = DriverManager.getConnection(DBURL, USER, PASS);
+            //STEP 3: Execute a query
+            logger.debug("Creating statement...");
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM account WHERE id=" + tmpid + ";";
+            rs = stmt.executeQuery(sql);
+            //STEP 4: Extract data from result
+            if(rs.next()) {
+                Long id  = rs.getLong("id");
+                String account_type = rs.getString("account_type");
+                double  balance = rs.getDouble("balance");
+                String create_date = rs.getString("create_date");
+                long employee_id = rs.getLong("employee_id");
+                //Fill the object
+
+                result.setId(id);
+                result.setAccount_type(account_type);
+                result.setBalance(balance);
+                result.setCreate_date(create_date);
+                result.setEmployee_id(employee_id);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            try {
+                if(rs != null)stmt.close();
+                if(stmt != null)stmt.close();
+                if(conn != null)conn.close();
+                logger.debug("Database connection closed");
+            }
+            catch (SQLException se){
+                se.printStackTrace();
+            }
+        }
+        return result;
+    }
+
     public Account saveAccounts(Account input) {
         Connection conn = null;
         PreparedStatement stmt = null;

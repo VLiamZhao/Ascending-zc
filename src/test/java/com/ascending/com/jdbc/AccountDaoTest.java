@@ -9,8 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class AccountDaoTest {
@@ -45,5 +43,13 @@ public class AccountDaoTest {
             logger.debug(String.valueOf(accounts));
         }
         Assert.assertEquals(expectedNumOfAccounts, accounts.size());
+    }
+
+    @Test
+    public void getAccountByIdTest() {
+        Account temp = accountDao.getAccountById(3);
+        Long expectedAccountId = 3L;
+        Assert.assertEquals(temp.getId(), expectedAccountId);
+//        Assert.assertEquals(expectedAccountType, temp.getAccount_type());
     }
 }
