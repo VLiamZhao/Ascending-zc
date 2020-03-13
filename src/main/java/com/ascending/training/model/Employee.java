@@ -1,26 +1,41 @@
 package com.ascending.training.model;
 
+import javax.persistence.*;
+import java.time.LocalDate;
+@Entity
+@Table(name = "employee")
 public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "first_name")
     private String first_name;
+    @Column(name = "last_name")
     private String last_name;
+    @Column(name = "email")
     private String email;
+    @Column(name = "address")
     private String address;
-    private String hired_date;
-    private long department;
+    @Column(name = "hired_date")
+    private LocalDate hired_date;
+    @Column(name = "department_id")
+    private long department_id;
 
     public Employee() {
     }
 
-    public Employee(String name, String first_name, String last_name, String email, String address, String hired_date, long department) {
+    public Employee(String name, String first_name, String last_name, String email, String address, LocalDate hired_date, long department_id) {
         this.name = name;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.address = address;
         this.hired_date = hired_date;
-        this.department = department;
+        this.department_id = department_id;
     }
 
     public long getId() {
@@ -71,19 +86,19 @@ public class Employee {
         this.address = address;
     }
 
-    public String getHired_date() {
+    public LocalDate getHired_date() {
         return hired_date;
     }
 
-    public void setHired_date(String hired_date) {
+    public void setHired_date(LocalDate hired_date) {
         this.hired_date = hired_date;
     }
 
-    public long getDepartment() {
-        return department;
+    public long getDepartmentId() {
+        return department_id;
     }
 
-    public void setDepartment(long department) {
-        this.department = department;
+    public void setDepartmentId(long department_id) {
+        this.department_id = department_id;
     }
 }

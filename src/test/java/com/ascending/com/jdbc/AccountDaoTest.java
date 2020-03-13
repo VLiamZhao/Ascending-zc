@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 public class AccountDaoTest {
@@ -21,7 +23,7 @@ public class AccountDaoTest {
         logger.debug("Executing setUp before test...");
         accountDao = new AccountDao();
         long testAccountId = 0;
-        testRecord = new Account("test", 439.91, 1);
+        testRecord = new Account("test", new BigDecimal(439.91), 1);
         testRecord = accountDao.saveAccounts(testRecord);
         testAccountId = testRecord.getId();
         assert(testAccountId > 0);
@@ -38,7 +40,7 @@ public class AccountDaoTest {
     @Test
     public void getAccountsTest() {
         List<Account> accounts = accountDao.getAccounts();
-        int expectedNumOfAccounts = 5;
+        int expectedNumOfAccounts = 6;
         for (Account account : accounts) {
             logger.debug(String.valueOf(accounts));
         }
@@ -47,9 +49,10 @@ public class AccountDaoTest {
 
     @Test
     public void getAccountByIdTest() {
-        Account temp = accountDao.getAccountById(3);
-        Long expectedAccountId = 3L;
-        Assert.assertEquals(temp.getId(), expectedAccountId);
-//        Assert.assertEquals(expectedAccountType, temp.getAccount_type());
+        Account temp = accountDao.getAccountById(testRecord.getId());
+        String expectedAccountType = "test";
+
+//        Assert.assertEquals(temp.getId(), expectedAccountId);
+        Assert.assertEquals(expectedAccountType, temp.getAccount_type());
     }
 }

@@ -1,5 +1,9 @@
 package com.ascending.training.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "department")
 public class Department {
     public Department() {}
     public Department(String name, String description, String location) {
@@ -7,9 +11,19 @@ public class Department {
         this.description = description;
         this.location = location;
     }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "location")
     private String location;
 
     public long getId() {

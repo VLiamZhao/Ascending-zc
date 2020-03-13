@@ -4,7 +4,9 @@ import com.ascending.training.model.Account;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.math.BigDecimal;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,7 @@ public class AccountDao {
     static final String DBURL = "jdbc:postgresql://localhost:5431/mydata";
     static final String USER = "admin";
     static final String PASS = "password";
+
     public List<Account> getAccounts() {
         List<Account> accounts = new ArrayList<>();
         Connection conn = null;
@@ -33,8 +36,8 @@ public class AccountDao {
                 //Retrieve by column name
                 Long id  = rs.getLong("id");
                 String account_type = rs.getString("account_type");
-                double  balance = rs.getDouble("balance");
-                String create_date = rs.getString("create_date");
+                BigDecimal balance = rs.getBigDecimal("balance");
+                LocalDate create_date = rs.getDate("create_date").toLocalDate();
                 long employee_id = rs.getLong("employee_id");
                 //Fill the object
                 Account account = new Account();
@@ -81,8 +84,8 @@ public class AccountDao {
             if(rs.next()) {
                 Long id  = rs.getLong("id");
                 String account_type = rs.getString("account_type");
-                double  balance = rs.getDouble("balance");
-                String create_date = rs.getString("create_date");
+                BigDecimal balance = rs.getBigDecimal("balance");
+                LocalDate create_date = rs.getDate("create_date").toLocalDate();
                 long employee_id = rs.getLong("employee_id");
                 //Fill the object
 
@@ -121,7 +124,7 @@ public class AccountDao {
             String sql = "INSERT INTO account (account_type, balance, employee_id)" + "VALUES (?, ?, ?);";
             stmt = conn.prepareStatement(sql, stmt.RETURN_GENERATED_KEYS);
             stmt.setString(1, input.getAccount_type());
-            stmt.setDouble(2, input.getBalance());
+            stmt.setBigDecimal(2, input.getBalance());
             stmt.setLong(3, input.getEmployee_id());
             stmt.execute();
             rs = stmt.getGeneratedKeys();
