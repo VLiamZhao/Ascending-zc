@@ -4,12 +4,15 @@ import com.ascending.training.model.Account;
 import com.ascending.training.repository.AccountDao;
 import com.ascending.training.repository.AccountDaoImpl;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class AccountDaoImplTest {
     Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -34,7 +37,10 @@ public class AccountDaoImplTest {
     }
 
     @Test
-    public void getAccounts() {
-
+    public void getAccounts(){
+        List<Account> accountList = accountDao.getAccounts();
+        int expectedNumOfAccounts = 7;
+        Assert.assertEquals(expectedNumOfAccounts, accountList.size());
     }
+
 }

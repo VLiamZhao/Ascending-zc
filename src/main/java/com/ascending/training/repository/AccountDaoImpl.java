@@ -6,19 +6,23 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.LoggerFactory;
 import org.hibernate.query.Query;
+
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.slf4j.Logger;
 
 public class AccountDaoImpl implements AccountDao{
-//    private SessionFactory sessionFactory;
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+
 
     @Override
     public List<Account> getAccounts() {
         String hql = "From Account";
         try(Session session = HibernateUtil.getSessionFactory().openSession()) {
             Query query = session.createQuery(hql);
-            return query.list();
+            return (List<Account>) query.list();
         }
         catch (Exception e){
             logger.debug(e.getMessage());
@@ -62,5 +66,12 @@ public class AccountDaoImpl implements AccountDao{
         logger.debug(String.format("The account which id is %s was deleted", String.valueOf(targetId)));
         return deletedCount == 1;
     }
-
+//    public static void main(String[] args) {
+//        Account a = new Account("test2", new BigDecimal(90.1), 2);
+//        Account b = null;
+//        AccountDao acc = new AccountDaoImpl();
+//        List<Account> accList = acc.getAccounts();
+////        b = acc.save(a);
+//        System.out.println(accList);
+//    }
 }
