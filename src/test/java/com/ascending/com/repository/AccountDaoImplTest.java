@@ -22,7 +22,7 @@ public class AccountDaoImplTest {
     Account account = new Account("test", balanceNum, 2);
 
     @Before
-    public void setUp() {
+    public void init() {
         logger.debug("Test will begin soon...");
         accTest = accountDao.save(account);
         long accId = 0;

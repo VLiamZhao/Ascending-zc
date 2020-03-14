@@ -22,6 +22,9 @@ public class Account {
 
   @ManyToOne
   @JoinColumn(name = "employee_id")
+  private Employee employee;
+
+  @Column(name = "employee_id")
   private long employee_id;
 
   public Account() {}

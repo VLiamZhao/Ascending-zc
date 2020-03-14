@@ -41,6 +41,7 @@ public class Employee {
         this.address = address;
         this.hired_date = hired_date;
         this.department_id = department_id;
+
     }
 
     public long getId() {

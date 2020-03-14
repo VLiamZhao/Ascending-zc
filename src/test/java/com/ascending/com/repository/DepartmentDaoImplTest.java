@@ -18,7 +18,7 @@ public class DepartmentDaoImplTest {
     Department department = new Department("office", "paperwork", "falls church");
 
     @Before
-    public void setUp() {
+    public void init() {
         logger.debug("Test will start...");
         long deptId = 0L;
         Department temp =  departmentDao.save(department);

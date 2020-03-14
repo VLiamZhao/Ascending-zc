@@ -28,7 +28,7 @@ public class Department {
     private String location;
 
     @OneToMany(mappedBy = "department")
-    private List<Employee> employee;
+    private List<Employee> employees;
 
     public long getId() {
         return id;
