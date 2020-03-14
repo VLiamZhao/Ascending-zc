@@ -1,6 +1,7 @@
 package com.ascending.training.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "department")
@@ -25,6 +26,9 @@ public class Department {
 
     @Column(name = "location")
     private String location;
+
+    @OneToMany(mappedBy = "department")
+    private List<Employee> employee;
 
     public long getId() {
         return id;

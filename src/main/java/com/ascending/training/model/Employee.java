@@ -22,7 +22,12 @@ public class Employee {
     private String address;
     @Column(name = "hired_date")
     private LocalDate hired_date;
-    @Column(name = "department_id")
+
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
+
+    @Column
     private long department_id;
 
     public Employee() {

@@ -20,7 +20,8 @@ public class Account {
   @Column(name = "create_date")
   private LocalDate create_date;
 
-  @Column(name = "employee_id")
+  @ManyToOne
+  @JoinColumn(name = "employee_id")
   private long employee_id;
 
   public Account() {}
