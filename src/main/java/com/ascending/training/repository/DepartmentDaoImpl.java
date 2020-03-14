@@ -1,6 +1,7 @@
 package com.ascending.training.repository;
 
 import com.ascending.training.model.Department;
+import com.ascending.training.model.Employee;
 import com.ascending.training.util.HibernateUtil;
 import com.github.fluent.hibernate.H;
 import org.hibernate.HibernateException;
@@ -70,5 +71,24 @@ public class DepartmentDaoImpl implements DepartmentDao{
             logger.debug(e.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public List<Department> getDepartmentAndEmployees(String deptName) {
+        if (deptName == null) return null;
+        List<Department> resultList;
+        String hql = "FROM Department as dept left join fetch dept.employees where lower(dept.name) = :name";
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query query = session.createQuery(hql);
+            query.setParameter("name", deptName.toLowerCase());
+
+            resultList = query.list();
+
+//            for (Object[] obj : resultList) {
+//                logger.debug(((Department)obj[0]).toString());
+//                logger.debug(((Employee)obj[1]).toString());
+        }
+        return resultList;
     }
 }

@@ -8,6 +8,7 @@ import com.ascending.training.repository.EmployeeDao;
 import com.ascending.training.repository.EmployeeDaoImpl;
 import org.checkerframework.checker.units.qual.A;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DepartmentModelTest {
+public class DepartmentRelationalTest {
     DepartmentDao departmentDao = new DepartmentDaoImpl();
     EmployeeDao employeeDao = new EmployeeDaoImpl();
     Employee e1;
@@ -51,6 +52,8 @@ public class DepartmentModelTest {
 
     @Test
     public void tempTest() {
-
+        List<Department> testDept = departmentDao.getDepartmentAndEmployees("ITDP2");
+        int expectedCount = 2;
+        Assert.assertEquals(expectedCount, testDept.size());
     }
 }
