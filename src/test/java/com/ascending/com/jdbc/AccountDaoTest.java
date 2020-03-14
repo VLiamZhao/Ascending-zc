@@ -23,7 +23,7 @@ public class AccountDaoTest {
         logger.debug("Executing setUp before test...");
         accountDao = new AccountDao();
         long testAccountId = 0;
-        testRecord = new Account("test", new BigDecimal(439.91), 1);
+        testRecord = new Account("test", new BigDecimal(439.91));
         testRecord = accountDao.saveAccounts(testRecord);
         testAccountId = testRecord.getId();
         assert(testAccountId > 0);

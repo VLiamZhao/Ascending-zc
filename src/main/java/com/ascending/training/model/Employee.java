@@ -2,6 +2,9 @@ package com.ascending.training.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "employee")
 public class Employee {
@@ -27,20 +30,17 @@ public class Employee {
     @JoinColumn(name = "department_id")
     private Department department;
 
-    @Column
-    private long department_id;
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Account> accounts = new ArrayList<>();
 
-    public Employee() {
-    }
 
-    public Employee(String name, String first_name, String last_name, String email, String address, LocalDate hired_date, long department_id) {
+    public Employee(String name, String first_name, String last_name, String email, String address, LocalDate hired_date) {
         this.name = name;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.address = address;
         this.hired_date = hired_date;
-        this.department_id = department_id;
 
     }
 
@@ -100,11 +100,10 @@ public class Employee {
         this.hired_date = hired_date;
     }
 
-    public long getDepartmentId() {
-        return department_id;
+    public Department getDepartment() {
+        return department;
     }
-
-    public void setDepartmentId(long department_id) {
-        this.department_id = department_id;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

@@ -54,5 +54,29 @@ public class Department {
     public void setLocation(String location) {
         this.location = location;
     }
+    public List<Employee> getEmployees() {
+        /* This solve the session closed exception when the fetch type is lazy */
+        try {
+            int size = employees.size();
+        }
+        catch (Exception e) {
+            return null;
+        }
+
+        return employees;
+    }
+    public void setEmployees(List<Employee> employees) {
+        /* Create link between parent and children objects automatically */
+        for (Employee e : employees) {
+            if (e.getDepartment() == null) e.setDepartment(this);
+        }
+
+        this.employees = employees;
+    }
+
+    public void addEmployee(Employee employee) {
+        employee.setDepartment(this);
+        employees.add(employee);
+    }
 
 }

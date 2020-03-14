@@ -24,15 +24,11 @@ public class Account {
   @JoinColumn(name = "employee_id")
   private Employee employee;
 
-  @Column(name = "employee_id")
-  private long employee_id;
-
   public Account() {}
 
-  public Account(String account_type, BigDecimal balance, long emloyee_id) {
+  public Account(String account_type, BigDecimal balance) {
     this.account_type = account_type;
     this.balance = balance;
-    this.employee_id = emloyee_id;
   }
 
   public Long getId() {
@@ -67,11 +63,10 @@ public class Account {
     this.create_date = create_date;
   }
 
-  public long getEmployee_id() {
-    return employee_id;
+  public Employee getEmployee() {
+    return employee;
   }
-
-  public void setEmployee_id(long employee_id) {
-    this.employee_id = employee_id;
+  public void setEmployee(Employee employee) {
+    this.employee = employee;
   }
 }

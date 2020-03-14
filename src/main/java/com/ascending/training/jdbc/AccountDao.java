@@ -45,7 +45,7 @@ public class AccountDao {
                 account.setAccount_type(account_type);
                 account.setBalance(balance);
                 account.setCreate_date(create_date);
-                account.setEmployee_id(employee_id);
+//                account.setEmployee(employee_id);
                 accounts.add(account);
             }
         }
@@ -93,7 +93,7 @@ public class AccountDao {
                 result.setAccount_type(account_type);
                 result.setBalance(balance);
                 result.setCreate_date(create_date);
-                result.setEmployee_id(employee_id);
+//                result.setEmployee_id(employee_id);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -125,7 +125,7 @@ public class AccountDao {
             stmt = conn.prepareStatement(sql, stmt.RETURN_GENERATED_KEYS);
             stmt.setString(1, input.getAccount_type());
             stmt.setBigDecimal(2, input.getBalance());
-            stmt.setLong(3, input.getEmployee_id());
+//            stmt.setLong(3, input.getEmployee_id());
             stmt.execute();
             rs = stmt.getGeneratedKeys();
             //STEP 4: Extract data from result set

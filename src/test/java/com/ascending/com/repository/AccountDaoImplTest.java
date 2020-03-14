@@ -19,7 +19,7 @@ public class AccountDaoImplTest {
     private AccountDao accountDao = new AccountDaoImpl();
     private Account accTest;
     BigDecimal balanceNum = new BigDecimal("13.2");
-    Account account = new Account("test", balanceNum, 2);
+    Account account = new Account("test", balanceNum);
 
     @Before
     public void init() {
