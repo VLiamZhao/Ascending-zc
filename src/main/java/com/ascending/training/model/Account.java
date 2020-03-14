@@ -25,7 +25,9 @@ public class Account {
   private Employee employee;
 
   public Account() {}
-
+  public Account(String account_type) {
+    this.account_type = account_type;
+  }
   public Account(String account_type, BigDecimal balance) {
     this.account_type = account_type;
     this.balance = balance;

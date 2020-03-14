@@ -32,8 +32,10 @@ public class Employee {
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Account> accounts = new ArrayList<>();
-
-
+    public Employee(String name) {
+        this.name = name;
+    }
+    public Employee() {}
     public Employee(String name, String first_name, String last_name, String email, String address, LocalDate hired_date) {
         this.name = name;
         this.first_name = first_name;

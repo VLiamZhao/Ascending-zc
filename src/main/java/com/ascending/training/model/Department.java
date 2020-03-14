@@ -7,6 +7,9 @@ import java.util.List;
 @Table(name = "department")
 public class Department {
     public Department() {}
+    public Department(String name) {
+        this.name = name;
+    }
     public Department(String name, String description, String location) {
         this.name = name;
         this.description = description;

@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.hibernate.query.Query;
 import java.util.List;
 
 public class EmployeeDaoImpl implements EmployeeDao {
@@ -31,7 +31,22 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public boolean deleteById(long id) {
-        return false;
+        String hql = "DELETE Employee where id = :targetId";
+        Transaction transaction = null;
+        int deletedCount = 0;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            Query query = session.createQuery(hql);
+            query.setParameter("targetId", id);
+            deletedCount = query.executeUpdate();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            logger.error(e.getMessage());
+        }
+        logger.debug(String.format("The employee which id is %s was deleted", String.valueOf(id)));
+        return deletedCount == 1;
     }
 
     @Override
