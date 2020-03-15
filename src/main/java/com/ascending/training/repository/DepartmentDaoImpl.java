@@ -37,6 +37,13 @@ public class DepartmentDaoImpl implements DepartmentDao{
 
     @Override
     public Department update(Department department) {
+//        String hql = "FROM Department d where id = :deptId";
+//        Transaction transaction = null;
+//        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+//            transaction = session.beginTransaction();
+//            Query query = session.createQuery(hql);
+//            query.setParameter("deptId", department.getId());
+//        }
         return null;
     }
 
@@ -74,21 +81,48 @@ public class DepartmentDaoImpl implements DepartmentDao{
     }
 
     @Override
-    public List<Department> getDepartmentAndEmployees(String deptName) {
+    public Department getDepartmentAndEmployees(String deptName) {
         if (deptName == null) return null;
-        List<Department> resultList;
         String hql = "FROM Department as dept left join fetch dept.employees where lower(dept.name) = :name";
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Query query = session.createQuery(hql);
+            Query<Department> query = session.createQuery(hql);
             query.setParameter("name", deptName.toLowerCase());
-
-            resultList = query.list();
-
+            return query.uniqueResult();
 //            for (Object[] obj : resultList) {
 //                logger.debug(((Department)obj[0]).toString());
 //                logger.debug(((Employee)obj[1]).toString());
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            return null;
         }
-        return resultList;
     }
+
+    @Override
+    public Department getDepartmentByName(String deptName) {
+        String hql = "FROM Department as dept WHERE lower(dept.name) = :deptName";
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Department> query = session.createQuery(hql);
+            query.setParameter("deptName", deptName.toLowerCase());
+            return query.uniqueResult();
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            return null;
+        }
+    }
+
+//    @Override
+//    public List<Department> getDepartmentsWithChildren() {
+//        String hql = "FROM Department as dept left join fetch dept.employees as em left join fetch em.accounts";
+//        try (Session session = HibernateUtil.getSessionFactory().openSession()){
+//            Query<Department> query = session.createQuery(hql);
+//            return query.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+////            session.close();
+//        }
+//        catch (Exception e){
+//            logger.error(e.getMessage());
+//        }
+//        return null;
+//    }
+
 }

@@ -30,6 +30,7 @@ public class DepartmentDaoRelaTest {
         e2 = new Employee("Liu Si2");
 
         d1 = new Department("ITDP2");
+        d1.setDescription("Eat and drink");
         List<Employee> employeeList = new ArrayList<>();
         employeeList.add(e1);
         employeeList.add(e2);
@@ -50,11 +51,17 @@ public class DepartmentDaoRelaTest {
     }
 
     @Test
-    public void tempTest() {
-        List<Department> testDept = departmentDao.getDepartmentAndEmployees("ITDP2");
+    public void getDepartmentAndEmployeesTest() {
+       Department testDept = departmentDao.getDepartmentAndEmployees("ITDP2");
         int expectedCount = 2;
-        Assert.assertEquals(expectedCount, testDept.size());
+        Assert.assertEquals(expectedCount, testDept.getEmployees().size());
     }
 
+    @Test
+    public void getDepartmentByName() {
+        Department de = departmentDao.getDepartmentByName("ITDP2");
+        String testString = "Eat and drink";
+        Assert.assertEquals(testString, de.getDescription());
+    }
 
 }

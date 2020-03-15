@@ -38,7 +38,7 @@ public class DepartmentDaoImplTest {
     public void getDepartments() {
         logger.debug("Departments will be gotten as a list...");
         List<Department> departments = departmentDao.getDepartments();
-        int expectedSize = 5;
+        int expectedSize = 7;
         Assert.assertEquals(expectedSize, departments.size());
     }
 }
