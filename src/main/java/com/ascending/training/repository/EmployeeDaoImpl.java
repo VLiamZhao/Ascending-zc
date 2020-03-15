@@ -2,6 +2,7 @@ package com.ascending.training.repository;
 
 import com.ascending.training.model.Employee;
 import com.ascending.training.util.HibernateUtil;
+import com.github.fluent.hibernate.H;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
@@ -51,11 +52,26 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public List<Employee> getEmployees() {
-        return null;
+        String hql = "FROM Employee";
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query query = session.createQuery(hql);
+            return (List<Employee>) query.list();
+        } catch (Exception e){
+            logger.error(e.getMessage());
+            return null;
+        }
     }
 
     @Override
     public Employee getEmployeeById(long id) {
-        return null;
+        String hql = "FROM Employee as empl where empl.id =:targetId";
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Employee> query = session.createQuery(hql);
+            query.setParameter("targetId", id);
+            return query.uniqueResult();
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            return null;
+        }
     }
 }
