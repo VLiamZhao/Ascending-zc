@@ -26,6 +26,8 @@ public class EmployeeService {
     public Employee getEmployeeById(long id) {
         return employeeDao.getEmployeeById(id);
     }
+
+    public Employee getEmployeeByName(String name) { return employeeDao.getEmployeeByName(name); }
 }
 //    Employee save(Employee employee);
 //

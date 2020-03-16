@@ -114,6 +114,19 @@ public class DepartmentDaoImpl implements DepartmentDao{
         }
     }
 
+    @Override
+    public Department getDepartmentById(long Did) {
+        String hql = "FROM Department as dept WHERE as.id = :deptId";
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Department> query = session.createQuery(hql);
+            query.setParameter("deptId", Did);
+            return query.uniqueResult();
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            return null;
+        }
+    }
+
 //    @Override
 //    public List<Department> getDepartmentsWithChildren() {
 //        String hql = "FROM Department as dept left join fetch dept.employees as em left join fetch em.accounts";

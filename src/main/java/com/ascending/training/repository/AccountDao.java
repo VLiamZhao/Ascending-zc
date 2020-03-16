@@ -9,5 +9,5 @@ public interface AccountDao {
 //    Account update(Account account);
     boolean deleteById(long id);
     List<Account> getAccounts();
-//    Account getAccountById();
+    Account getAccountById(long id);
 }

@@ -11,7 +11,7 @@ public interface EmployeeDao {
     boolean deleteById(long id);
     List<Employee> getEmployees();
 //    List<Employee> getEmployeesWithAccounts();
-//    Employee getEmployeeByName(String name);
+    Employee getEmployeeByName(String name);
 //    Employee getEmployeeWithAccountsByName(String name);
     Employee getEmployeeById(long id);
 }

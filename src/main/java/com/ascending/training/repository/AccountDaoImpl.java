@@ -66,6 +66,19 @@ public class AccountDaoImpl implements AccountDao{
         logger.debug(String.format("The account which id is %s was deleted", String.valueOf(targetId)));
         return deletedCount == 1;
     }
+
+    @Override
+    public Account getAccountById(long targetId) {
+        String hql = "FROM Account as acc  where id = :targetId";
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Account> query = session.createQuery(hql);
+            query.setParameter("targetId", targetId);
+            return query.uniqueResult();
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            return null;
+        }
+    }
 //    public static void main(String[] args) {
 //        Account a = new Account("test2", new BigDecimal(90.1), 2);
 //        Account b = null;

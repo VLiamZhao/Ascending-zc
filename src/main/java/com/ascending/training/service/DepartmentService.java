@@ -33,10 +33,6 @@ public class DepartmentService {
 
     public Department getDepartmentByName(String deptName){ return departmentDao.getDepartmentByName(deptName); }
 
-//    public Department getDepartmentById(long id){
-//        List<Department> departments = departmentDao.getDepartments().stream().filter(e -> e.getId()==id).collect(Collectors.toList());
-//
-//        return departments.get(0);
-//    }
+    public Department getDepartmentById(long id){ return departmentDao.getDepartmentById(id); }
 
 }

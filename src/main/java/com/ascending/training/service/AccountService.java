@@ -23,9 +23,9 @@ public class AccountService {
         return accountDao.getAccounts();
     }
 
-//    public Account getAccountById(long id) {
-//        return accountDao.getAccountById(id);
-//    }
+    public Account getAccountById(long id) {
+        return accountDao.getAccountById(id);
+    }
 }
 //    Account save(Account account);
 //    //    Account update(Account account);

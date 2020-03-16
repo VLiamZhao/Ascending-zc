@@ -77,6 +77,17 @@ public class EmployeeDaoImpl implements EmployeeDao {
             return null;
         }
     }
-
+    @Override
+    public Employee getEmployeeByName(String Ename) {
+        String hql = "FROM Employee as empl where empl.name =:emName";
+        try(Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Employee> query = session.createQuery(hql);
+            query.setParameter("emName", Ename);
+            return query.uniqueResult();
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+            return null;
+        }
+    }
 
 }
