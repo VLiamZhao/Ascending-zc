@@ -1,5 +1,6 @@
 package com.ascending.training.repository;
 
+import com.ascending.training.model.Account;
 import com.ascending.training.model.Department;
 import com.ascending.training.model.Employee;
 import com.ascending.training.util.HibernateUtil;
@@ -74,8 +75,8 @@ public class DepartmentDaoImpl implements DepartmentDao{
     public List<Department> getDepartments() {
         String hql = "From Department";
         try(Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Query<Department> query = session.createQuery(hql);
-            return query.list();
+            Query query = session.createQuery(hql);
+            return (List<Department>) query.list();
         } catch (Exception e) {
             logger.debug(e.getMessage());
             return null;
