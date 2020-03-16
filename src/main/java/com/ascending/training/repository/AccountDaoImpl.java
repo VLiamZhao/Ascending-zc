@@ -10,7 +10,9 @@ import java.util.List;
 
 
 import org.slf4j.Logger;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class AccountDaoImpl implements AccountDao{
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 

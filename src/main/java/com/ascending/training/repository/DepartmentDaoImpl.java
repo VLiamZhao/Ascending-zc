@@ -12,10 +12,12 @@ import org.hibernate.query.Query;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import javax.transaction.Synchronization;
 import java.util.List;
 
+@Repository
 public class DepartmentDaoImpl implements DepartmentDao{
     Logger logger = LoggerFactory.getLogger(this.getClass());
     @Override
@@ -72,8 +74,8 @@ public class DepartmentDaoImpl implements DepartmentDao{
     public List<Department> getDepartments() {
         String hql = "From Department";
         try(Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Query query = session.createQuery(hql);
-            return (List<Department>) query.list();
+            Query<Department> query = session.createQuery(hql);
+            return query.list();
         } catch (Exception e) {
             logger.debug(e.getMessage());
             return null;
@@ -125,4 +127,9 @@ public class DepartmentDaoImpl implements DepartmentDao{
 //        return null;
 //    }
 
+//    public static void main(String[] args) {
+//        DepartmentDao  departmentDao = new DepartmentDaoImpl();
+//        List<Department> depts = departmentDao.getDepartments();
+//        System.out.println(depts.size());
+//    }
 }

@@ -1,5 +1,6 @@
 package com.ascending.com.repository;
 
+import com.ascending.training.init.ApplicationBootstrap;
 import com.ascending.training.model.Department;
 import com.ascending.training.model.Employee;
 import com.ascending.training.repository.DepartmentDao;
@@ -10,14 +11,25 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DepartmentDaoRelaTest {
-    DepartmentDao departmentDao = new DepartmentDaoImpl();
-    EmployeeDao employeeDao = new EmployeeDaoImpl();
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = ApplicationBootstrap.class)
+public class DepartmentDaoSpriTest {
+    @Autowired
+    private DepartmentDao departmentDao;
+    @Autowired
+    private EmployeeDao employeeDao;
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     Employee e1;
     Employee e2;
     Department d1;
@@ -62,6 +74,14 @@ public class DepartmentDaoRelaTest {
         Department de = departmentDao.getDepartmentByName("ITDP2");
         String testString = "Eat and drink";
         Assert.assertEquals(testString, de.getDescription());
+    }
+
+    @Test
+    public void getDepartments() {
+        logger.debug("Departments will be gotten as a list...");
+        List<Department> departments = departmentDao.getDepartments();
+        int expectedSize = 7;
+        Assert.assertEquals(expectedSize, departments.size());
     }
 
 }
