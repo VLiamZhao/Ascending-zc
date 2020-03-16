@@ -22,6 +22,7 @@ public class TestController {
     @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public Map<String, Object> getSampleJson() {
         Map<String, Object> m = new HashMap<>();
+        Random r = new Random();
         m.put("id", r.nextInt());
         m.put("name","HR");
         m.put("capacity",500);
