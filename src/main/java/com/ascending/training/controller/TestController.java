@@ -14,32 +14,36 @@ import java.util.Random;
 @RestController
 @RequestMapping(value = {"/test"})
 public class TestController {
-    Logger logger = LoggerFactory.getLogger(getClass());
-    /**
-     * GET/test
-     * @return
-     */
-    @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Map<String, Object> getSampleJson() {
-        Map<String, Object> m = new HashMap<>();
-        Random r = new Random();
-        m.put("id", r.nextInt());
-        m.put("name","HR");
-        m.put("capacity",500);
-        return m;
-    }
+  Logger logger = LoggerFactory.getLogger(getClass());
+  /**
+   * GET/test
+   *
+   * @return
+   */
+  @RequestMapping(
+      method = RequestMethod.GET,
+      produces = {MediaType.APPLICATION_JSON_VALUE})
+  public Map<String, Object> getSampleJson() {
+    Map<String, Object> m = new HashMap<>();
+    Random r = new Random();
+    m.put("id", r.nextInt());
+    m.put("name", "HR");
+    m.put("capacity", 500);
+    return m;
+  }
 
-    /**
-     * POST/test
-     */
-    @RequestMapping(value = {"/example"}, method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Map<String, Object> createObject() {
-        Map<String, Object> m = new HashMap<>();
-        Random r = new Random();
-        m.put("id", r.nextInt());
-        m.put("name", "HR");
-        m.put("capacity", 500);
-        logger.debug("create an object wi id:" + m.get("id"));
-        return m;
-    }
+  /** POST/test */
+  @RequestMapping(
+      value = {"/example"},
+      method = RequestMethod.POST,
+      produces = {MediaType.APPLICATION_JSON_VALUE})
+  public Map<String, Object> createObject() {
+    Map<String, Object> m = new HashMap<>();
+    Random r = new Random();
+    m.put("id", r.nextInt());
+    m.put("name", "HR");
+    m.put("capacity", 500);
+    logger.debug("create an object wi id:" + m.get("id"));
+    return m;
+  }
 }
