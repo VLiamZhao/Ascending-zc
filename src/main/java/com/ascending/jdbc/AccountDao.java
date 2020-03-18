@@ -1,6 +1,6 @@
-package com.ascending.training.jdbc;
+package com.ascending.jdbc;
 
-import com.ascending.training.model.Account;
+import com.ascending.model.Account;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

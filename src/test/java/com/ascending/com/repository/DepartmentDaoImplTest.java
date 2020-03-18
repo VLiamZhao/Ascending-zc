@@ -1,8 +1,7 @@
 package com.ascending.com.repository;
 
-import com.ascending.training.model.Department;
-import com.ascending.training.repository.DepartmentDao;
-import com.ascending.training.repository.DepartmentDaoImpl;
+import com.ascending.model.Department;
+import com.ascending.repository.DepartmentDao;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

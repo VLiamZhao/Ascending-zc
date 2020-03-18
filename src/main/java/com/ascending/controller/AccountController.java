@@ -1,8 +1,8 @@
-package com.ascending.training.controller;
+package com.ascending.controller;
 
-import com.ascending.training.model.Account;
-import com.ascending.training.service.AccountService;
-import com.ascending.training.service.EmployeeService;
+import com.ascending.model.Account;
+import com.ascending.service.AccountService;
+import com.ascending.service.EmployeeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

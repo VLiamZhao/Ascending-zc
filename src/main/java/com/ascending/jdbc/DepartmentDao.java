@@ -1,10 +1,4 @@
-package com.ascending.training.jdbc;
-
-import com.ascending.training.model.Department;
-
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+package com.ascending.jdbc;
 
 public class DepartmentDao {
     static final String DBURL = "jdbc:postgresql://localhost:5431/mydata";

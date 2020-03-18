@@ -1,4 +1,4 @@
-package com.ascending.training.util;
+package com.ascending.util;
 
 import com.github.fluent.hibernate.cfg.scanner.EntityScanner;
 import org.hibernate.SessionFactory;

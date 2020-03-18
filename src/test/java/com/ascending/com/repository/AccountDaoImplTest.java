@@ -1,8 +1,8 @@
 package com.ascending.com.repository;
 
-import com.ascending.training.model.Account;
-import com.ascending.training.repository.AccountDao;
-import com.ascending.training.repository.AccountDaoImpl;
+import com.ascending.model.Account;
+import com.ascending.repository.AccountDao;
+import com.ascending.repository.AccountDaoImpl;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

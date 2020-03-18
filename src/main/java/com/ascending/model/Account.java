@@ -1,4 +1,4 @@
-package com.ascending.training.model;
+package com.ascending.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

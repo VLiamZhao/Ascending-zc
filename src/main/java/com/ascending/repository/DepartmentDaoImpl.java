@@ -1,21 +1,14 @@
-package com.ascending.training.repository;
+package com.ascending.repository;
 
-import com.ascending.training.model.Account;
-import com.ascending.training.model.Department;
-import com.ascending.training.model.Employee;
-import com.ascending.training.util.HibernateUtil;
-import com.github.fluent.hibernate.H;
-import org.hibernate.HibernateException;
+import com.ascending.model.Department;
+import com.ascending.util.HibernateUtil;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import org.hibernate.resource.transaction.spi.TransactionStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import javax.transaction.Synchronization;
 import java.util.List;
 
 @Repository

@@ -1,17 +1,5 @@
 package com.ascending.com.jdbc;
 
-import com.ascending.training.jdbc.AccountDao;
-import com.ascending.training.model.Account;
-
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.math.BigDecimal;
-import java.util.List;
 //
 //public class AccountDaoTest {
 //    private Logger logger = LoggerFactory.getLogger(this.getClass());

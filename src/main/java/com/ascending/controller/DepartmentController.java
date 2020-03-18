@@ -1,7 +1,7 @@
-package com.ascending.training.controller;
+package com.ascending.controller;
 
-import com.ascending.training.model.Department;
-import com.ascending.training.service.DepartmentService;
+import com.ascending.model.Department;
+import com.ascending.service.DepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

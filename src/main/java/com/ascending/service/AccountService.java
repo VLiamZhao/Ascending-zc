@@ -1,7 +1,7 @@
-package com.ascending.training.service;
+package com.ascending.service;
 
-import com.ascending.training.model.Account;
-import com.ascending.training.repository.AccountDao;
+import com.ascending.model.Account;
+import com.ascending.repository.AccountDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

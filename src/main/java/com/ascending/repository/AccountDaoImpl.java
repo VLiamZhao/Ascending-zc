@@ -1,7 +1,7 @@
-package com.ascending.training.repository;
+package com.ascending.repository;
 
-import com.ascending.training.model.Account;
-import com.ascending.training.util.HibernateUtil;
+import com.ascending.model.Account;
+import com.ascending.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.LoggerFactory;

@@ -1,12 +1,12 @@
 package com.ascending.com.service;
 
-import com.ascending.training.init.ApplicationBootstrap;
-import com.ascending.training.model.Account;
-import com.ascending.training.model.Department;
-import com.ascending.training.model.Employee;
-import com.ascending.training.service.AccountService;
-import com.ascending.training.service.DepartmentService;
-import com.ascending.training.service.EmployeeService;
+import com.ascending.init.ApplicationBootstrap;
+import com.ascending.model.Account;
+import com.ascending.model.Department;
+import com.ascending.model.Employee;
+import com.ascending.service.AccountService;
+import com.ascending.service.DepartmentService;
+import com.ascending.service.EmployeeService;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

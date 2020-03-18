@@ -1,11 +1,11 @@
 package com.ascending.com.repository;
 
-import com.ascending.training.model.Department;
-import com.ascending.training.model.Employee;
-import com.ascending.training.repository.DepartmentDao;
-import com.ascending.training.repository.DepartmentDaoImpl;
-import com.ascending.training.repository.EmployeeDao;
-import com.ascending.training.repository.EmployeeDaoImpl;
+import com.ascending.model.Department;
+import com.ascending.model.Employee;
+import com.ascending.repository.DepartmentDao;
+import com.ascending.repository.DepartmentDaoImpl;
+import com.ascending.repository.EmployeeDao;
+import com.ascending.repository.EmployeeDaoImpl;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

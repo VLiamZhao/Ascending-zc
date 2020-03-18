@@ -1,6 +1,6 @@
-package com.ascending.training.repository;
+package com.ascending.repository;
 
-import com.ascending.training.model.Department;
+import com.ascending.model.Department;
 
 import java.util.List;
 

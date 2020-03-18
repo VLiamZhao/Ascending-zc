@@ -1,4 +1,4 @@
-package com.ascending.training.init;
+package com.ascending.init;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

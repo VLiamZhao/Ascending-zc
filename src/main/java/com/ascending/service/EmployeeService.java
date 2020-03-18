@@ -1,7 +1,7 @@
-package com.ascending.training.service;
+package com.ascending.service;
 
-import com.ascending.training.model.Employee;
-import com.ascending.training.repository.EmployeeDao;
+import com.ascending.model.Employee;
+import com.ascending.repository.EmployeeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

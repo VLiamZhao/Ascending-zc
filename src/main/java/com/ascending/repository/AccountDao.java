@@ -1,6 +1,6 @@
-package com.ascending.training.repository;
+package com.ascending.repository;
 
-import com.ascending.training.model.Account;
+import com.ascending.model.Account;
 
 import java.util.List;
 

@@ -1,8 +1,7 @@
-package com.ascending.training.repository;
+package com.ascending.repository;
 
-import com.ascending.training.model.Employee;
-import com.ascending.training.util.HibernateUtil;
-import com.github.fluent.hibernate.H;
+import com.ascending.model.Employee;
+import com.ascending.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.slf4j.Logger;
